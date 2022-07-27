@@ -47,7 +47,7 @@ REQUIREMENTS
 INSTALLATION
 ============
 
- * Run  `git clone -b Guzzle6 git@gitlab.dev.indrivo.com:php-team/maib-api.git && cd maib-api && composer install`
+ * Run  `composer require maib/maibapi ^2.0`
 
 
 BEFORE USAGE
@@ -113,7 +113,7 @@ USAGE
   ````
  * Prepare the payment parameters
   ````
-    // The Parameters needed to use MaibClient methods
+    // The Parameters Required to use MaibClient methods
     $amount = 1; // The amount of the transaction
     $currency = 978; // The currency of the transaction - is the 3 digits code of currency from ISO 4217
     $clientIpAddr = '127.0.0.1'; // The client IP address
@@ -134,7 +134,7 @@ USAGE
       * When the transaction has been finalised, the Maib Payment Gateway redirects the user to your callback URL where you get the transaction status.
       ! The TRANSACTION_ID has a timeout of 10 minutes.
 
-      - Needed parameters:
+      - Required parameters:
         * $amount = 1; // The amount of the transaction
         * $currency = 978; // The currency of the transaction - is the 3 digits code of currency from ISO 4217
         * $clientIpAddr = '127.0.0.1'; // The client IP address
@@ -158,7 +158,7 @@ USAGE
       * When the transaction has been applied, the Maib Payment Gateway redirects the user to your callback URL where you get the transaction status.
       - The third step is to confirm transactions using the makeDMSTrans method.
 
-      - Needed parameters:
+      - Required parameters:
         * $amount = 1; // The amount of the transaction.
         * $currency = 978; // The currency of the transaction - is the 3 digits code of currency from ISO 4217.
         * $clientIpAddr = '127.0.0.1'; // The client IP address.
@@ -175,7 +175,7 @@ USAGE
     $dms_redirect_url = $redirect_url . $dms_transaction_id;
   ````
  * Executing a DMS transaction
-      - Needed parameters:
+      - Required parameters:
         * $dms_transaction_id;// The transaction ID from registerDmsAuthorization.
         * $amount = 1; // The amount of the transaction.
         * $currency = 978; // The currency of the transaction - is the 3 digits code of currency from ISO 4217.
@@ -196,7 +196,7 @@ USAGE
   ````
  * Get transaction result
    You can get the transaction status yourself using the getTransactionResult method. But do not forget, the transaction ID has a timeout of 10 minutes.
-      - Needed parameters:
+      - Required parameters:
         * $transaction_id;// The transaction ID from registerSmsTransaction or registerDmsAuthorization.
         * $clientIpAddr = '127.0.0.1'; // The client IP address.
       - Response:
@@ -248,7 +248,7 @@ USAGE
   ````
  * Transaction reversal
    The ability to perform a return operation, partially or completely.
-      - Needed parameters:
+      - Required parameters:
         * $transaction_id;// The transaction ID from registerSmsTransaction or registerDmsAuthorization.
         * $amount = 1; // The amount of the transaction.
       - Response:
@@ -266,8 +266,8 @@ USAGE
   ````
  * Close the work day
    Execute automatic closing of the day, recommended use time: 23:59:00.
-      - Needed parameters:
-        * No parameters needed.
+      - Required parameters:
+        * No parameters Required.
       - Response:
         return array RESULT, RESULT_CODE, FLD_075, FLD_076, FLD_087, FLD_088
         * RESULT        - OK     - successful end of business day
