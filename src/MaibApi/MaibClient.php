@@ -14,59 +14,45 @@ use GuzzleHttp\Stream\Stream;
 class MaibClient extends GuzzleClient
 {
     /**
-   * The Payment Gateway URL to use in production mode.
-   *
-   * @var string
-   */
-  const MAIB_LIVE_REDIRECT_URL = 'https://maib.ecommerce.md:443/ecomm01/ClientHandler';
-
-  /**
-   * The Bank server URL to use in production mode.
-   *
-   * @var string
-   */
-  const MAIB_LIVE_BASE_URI = 'https://maib.ecommerce.md:11440';
-
-  /**
-   * The Payment Gateway URL to use in development/testing mode.
-   *
-   * @var string
-   */
-  const MAIB_TEST_REDIRECT_URL = 'https://maib.ecommerce.md:21443/ecomm/ClientHandler';
-
-  /**
-   * The Bank server URL to use in development/testing mode.
-   *
-   * @var string
-   */
-  const MAIB_TEST_BASE_URI = 'https://maib.ecommerce.md:21440';
-
-  /**
-   * The Certificate URL to use in development/testing mode.
-   *
-   * @var string
-   */
-  const MAIB_TEST_CERT_URL = __DIR__ . '/cert/cert.pem';
-
-  /**
-   * The Certificate PASSWORD to use in development/testing mode.
-   *
-   * @var string
-   */
-  const MAIB_TEST_CERT_PASS = 'Za86DuC$';
-
-  /**
-   * The Certificate Private Key to use in development/testing mode.
-   *
-   * @var string
-   */
-  const MAIB_TEST_CERT_KEY_URL = __DIR__ . '/cert/key.pem';
+     * The Payment Gateway URL to use in production mode.
+     */
+    const MAIB_LIVE_REDIRECT_URL = 'https://maib.ecommerce.md:443/ecomm01/ClientHandler';
 
     /**
-   * @param ClientInterface      $client
-   * @param DescriptionInterface $description
-   * @param array                $config
-   */
+     * The Bank server URL to use in production mode.
+     */
+    const MAIB_LIVE_BASE_URI = 'https://maib.ecommerce.md:11440';
+
+    /**
+     * The Payment Gateway URL to use in development/testing mode.
+     */
+    const MAIB_TEST_REDIRECT_URL = 'https://maib.ecommerce.md:21443/ecomm/ClientHandler';
+
+    /**
+     * The Bank server URL to use in development/testing mode.
+     */
+    const MAIB_TEST_BASE_URI = 'https://maib.ecommerce.md:21440';
+
+    /**
+     * The Certificate URL to use in development/testing mode.
+     */
+    const MAIB_TEST_CERT_URL = __DIR__ . '/cert/cert.pem';
+
+    /**
+     * The Certificate PASSWORD to use in development/testing mode.
+     */
+    const MAIB_TEST_CERT_PASS = 'Za86DuC$';
+
+    /**
+     * The Certificate Private Key to use in development/testing mode.
+     */
+    const MAIB_TEST_CERT_KEY_URL = __DIR__ . '/cert/key.pem';
+
+    /**
+     * @param ClientInterface      $client
+     * @param DescriptionInterface $description
+     * @param array                $config
+     */
     public function __construct(ClientInterface $client = null, DescriptionInterface $description = null, array $config = [])
     {
         $client = $client instanceof ClientInterface ? $client : new Client();

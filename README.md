@@ -48,7 +48,7 @@ REQUIREMENTS
 INSTALLATION
 ============
 
- * Run  `git clone -b Guzzle5 git@gitlab.dev.indrivo.com:php-team/maib-api.git && cd maib-api && composer install`
+ * Run  `composer require maib/maibapi ^1.0`
 
 
 BEFORE USAGE
