@@ -279,8 +279,8 @@ USAGE
   ````
   * Test medium
     - Merchant: https://maib.ecommerce.md:21440/ecomm/MerchantHandler
-    - Client: https://ecomm.maib.md:7443/ecomm2/ClientHandler
-    - Test Certificates are in the "cert" folder
+    - Client: https://maib.ecommerce.md:21443/ecomm/ClientHandler
+    - Test Certificates are in the "src/MaibApi/cert/" folder
     - The test certificate Password is Za86DuC$
   * Test Card
     - Card number: 5102180060101124

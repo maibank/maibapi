@@ -13,19 +13,54 @@ use GuzzleHttp\Stream\Stream;
 
 class MaibClient extends GuzzleClient
 {
-    const MAIB_LIVE_REDIRECT_URL = 'https://maib.ecommerce.md:443/ecomm01/ClientHandler';
+    /**
+   * The Payment Gateway URL to use in production mode.
+   *
+   * @var string
+   */
+  const MAIB_LIVE_REDIRECT_URL = 'https://maib.ecommerce.md:443/ecomm01/ClientHandler';
 
-    const MAIB_LIVE_BASE_URI = 'https://maib.ecommerce.md:11440';
+  /**
+   * The Bank server URL to use in production mode.
+   *
+   * @var string
+   */
+  const MAIB_LIVE_BASE_URI = 'https://maib.ecommerce.md:11440';
 
-    const MAIB_TEST_REDIRECT_URL = 'https://maib.ecommerce.md:21443/ecomm/ClientHandler';
+  /**
+   * The Payment Gateway URL to use in development/testing mode.
+   *
+   * @var string
+   */
+  const MAIB_TEST_REDIRECT_URL = 'https://maib.ecommerce.md:21443/ecomm/ClientHandler';
 
-    const MAIB_TEST_BASE_URI = 'https://maib.ecommerce.md:21440';
+  /**
+   * The Bank server URL to use in development/testing mode.
+   *
+   * @var string
+   */
+  const MAIB_TEST_BASE_URI = 'https://maib.ecommerce.md:21440';
 
-    const MAIB_TEST_CERT_URL = __DIR__ . '/cert/cert.pem';
+  /**
+   * The Certificate URL to use in development/testing mode.
+   *
+   * @var string
+   */
+  const MAIB_TEST_CERT_URL = __DIR__ . '/cert/cert.pem';
 
-    const MAIB_TEST_CERT_PASS = 'Za86DuC$';
+  /**
+   * The Certificate PASSWORD to use in development/testing mode.
+   *
+   * @var string
+   */
+  const MAIB_TEST_CERT_PASS = 'Za86DuC$';
 
-    const MAIB_TEST_CERT_KEY_URL = __DIR__ . '/cert/key.pem';
+  /**
+   * The Certificate Private Key to use in development/testing mode.
+   *
+   * @var string
+   */
+  const MAIB_TEST_CERT_KEY_URL = __DIR__ . '/cert/key.pem';
 
     /**
    * @param ClientInterface      $client
