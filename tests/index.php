@@ -2,7 +2,7 @@
 
 namespace MyProject;
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once(__DIR__ . '/vendor/autoload.php');
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
@@ -23,6 +23,7 @@ if ((isset($log_is_required) && $log_is_required)) {
     );
 }
 
+// Set the Guzzle client options
 $options = [
   'base_uri' => MaibClient::MAIB_TEST_BASE_URI,
   'debug'  => false,
@@ -67,7 +68,7 @@ $sms_redirect_url = $redirect_url . $sms_transaction_id;
 
 // The register dms authorization method
 $registerDmsAuthorization = $client->registerDmsAuthorization($amount, $currency, $clientIpAddr, $description, $lang);
-$dms_transaction_id = $registerDmsAuthorization["TRANSACTION_ID"] ? $registerDmsAuthorization["TRANSACTION_ID"] : '';
+$dms_transaction_id = $registerDmsAuthorization["TRANSACTION_ID"];
 $dms_redirect_url = $redirect_url . $dms_transaction_id;
 
 // The execute dms transaction method

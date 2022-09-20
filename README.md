@@ -113,7 +113,7 @@ USAGE
   ````
  * Prepare the payment parameters
   ````
-    // The Parameters Required to use MaibClient methods
+    // The Parameters required to use MaibClient methods
     $amount = 1; // The amount of the transaction
     $currency = 978; // The currency of the transaction - is the 3 digits code of currency from ISO 4217
     $clientIpAddr = '127.0.0.1'; // The client IP address
@@ -123,7 +123,7 @@ USAGE
     // Other parameters
     $sms_transaction_id = null;
     $dms_transaction_id = null;
-    $redirect_url = 'https://ecomm.maib.md:7443/ecomm2/ClientHandler?trans_id=';
+    $redirect_url = MaibClient::MAIB_TEST_REDIRECT_URL . '?trans_id=';
     $sms_redirect_url = '';
     $dms_redirect_url = '';
   ````
