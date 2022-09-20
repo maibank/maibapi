@@ -20,8 +20,8 @@
     "monolog/monolog": "~1.14"
   },
   "autoload": {
-    "psr-0": {
-      "Maib\\": ""
+    "psr-4": {
+      "Maib\\": "src/"
     }
   }
 }
