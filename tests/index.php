@@ -14,7 +14,7 @@ use Monolog\Logger;
 // Set the Guzzle client options
 $options = [
   'base_uri' => MaibClient::MAIB_TEST_BASE_URI,
-  'debug'  => true,
+  'debug'  => false,
   'verify' => true,
   'defaults' => [
     'verify' => MaibClient::MAIB_TEST_CERT_URL,
@@ -26,11 +26,12 @@ $options = [
         CURLOPT_SSL_VERIFYPEER => true,
       ]
     ]
-  ],
+  ]
 ];
 // init Client
 $guzzleClient = new Client($options);
 
+echo "<pre>";
 // create a log for client class, if you want (monolog/monolog required)
 $log = new Logger('maib_guzzle_request');
 $log->pushHandler(new StreamHandler(__DIR__.'/logs/maib_guzzle_request.log', Logger::DEBUG));
@@ -95,5 +96,4 @@ $dump = [
     "revertTransaction"         => $revertTransaction,
     "closeDay"                  => $closeDay,
 ];
-echo "<pre>";
 print_r($dump);
