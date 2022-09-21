@@ -4,41 +4,48 @@ namespace MyProject;
 
 require_once(__DIR__ . '/vendor/autoload.php');
 
-use Maib\MaibApi\MaibClient;
-use GuzzleHttp\Client;
-use GuzzleHttp\Subscriber\Log\Formatter;
-use GuzzleHttp\Subscriber\Log\LogSubscriber;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
+use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
+use GuzzleHttp\MessageFormatter;
+use Maib\MaibApi\MaibClient;
+
+// Create a log for Guzzle client class, if you want (monolog/monolog required)
+// It is needed to send to Maib Support in case of errors appear.
+if ((isset($log_is_required) && $log_is_required)) {
+    $log = new Logger('maib_guzzle_request');
+    $log->pushHandler(new StreamHandler(__DIR__.'/logs/maib_guzzle_request.log', Logger::DEBUG));
+    $stack = HandlerStack::create();
+    $stack->push(
+        Middleware::log($log, new MessageFormatter(MessageFormatter::DEBUG))
+    );
+}
 
 // Set the Guzzle client options
 $options = [
   'base_uri' => MaibClient::MAIB_TEST_BASE_URI,
   'debug'  => false,
   'verify' => true,
-  'defaults' => [
-    'verify' => MaibClient::MAIB_TEST_CERT_URL,
-    'cert'    => [MaibClient::MAIB_TEST_CERT_URL, MaibClient::MAIB_TEST_CERT_PASS],
-    'ssl_key' => MaibClient::MAIB_TEST_CERT_KEY_URL,
-    'config'  => [
-      'curl'  =>  [
-        CURLOPT_SSL_VERIFYHOST => 2,
-        CURLOPT_SSL_VERIFYPEER => true,
-      ]
+  'cert'    => [MaibClient::MAIB_TEST_CERT_URL, MaibClient::MAIB_TEST_CERT_PASS],
+  'ssl_key' => MaibClient::MAIB_TEST_CERT_KEY_URL,
+  'config'  => [
+    'curl'  =>  [
+      CURLOPT_SSL_VERIFYHOST => 2,
+      CURLOPT_SSL_VERIFYPEER => true,
     ]
   ]
 ];
+if (isset($stack)) {
+    $options['handler'] = $stack;
+}
+
 // init Client
 $guzzleClient = new Client($options);
+$client = new MaibClient($guzzleClient);
 
 echo "<pre>";
-// create a log for client class, if you want (monolog/monolog required)
-$log = new Logger('maib_guzzle_request');
-$log->pushHandler(new StreamHandler(__DIR__.'/logs/maib_guzzle_request.log', Logger::DEBUG));
-$subscriber = new LogSubscriber($log, Formatter::SHORT);
-
-$client = new MaibClient($guzzleClient);
-$client->getHttpClient()->getEmitter()->attach($subscriber);
 
 // The Parameters needed to use MaibClient methods
 $amount = 1; // The amount of the transaction
