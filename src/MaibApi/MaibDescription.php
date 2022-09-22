@@ -10,9 +10,9 @@ class MaibDescription extends Description
    * @param array $options Custom options to apply to the description
    *     - formatter: Can provide a custom SchemaFormatter class
    */
-    public function __construct(array $options = [ ])
+    public function __construct(array $options = [])
     {
-        $uri = '/ecomm/MerchantHandler';
+        $uri = empty($options['basePath']) ? '/ecomm/MerchantHandler' : $options['basePath'];
         parent::__construct([
             'name'       => 'Maib API',
             'operations' => [
