@@ -1,4 +1,4 @@
-#Moldova Agroindbank Payment PHP SDK
+# MAIB Payment PHP SDK
 #### maib-api
 [![N|Solid](https://www.maib.md/images/logo.svg)](https://www.maib.md)
 
@@ -19,10 +19,10 @@ CONTENTS OF THIS FILE
 INTRODUCTION
 ============
 
-The Moldova Agroindbank Payment PHP SDK is used to easily integrate the MAIB Payment into your project.
+The MAIB Payment PHP SDK is used to easily integrate the MAIB Payment into your project.
 Based on the Guzzle Libraries to connect and process the requests with the Bank server and the Monolog library to log the requests responses.
 
-The Moldova Agroindbank Payment PHP SDK has 2 ways of payment.
+The MAIB Payment PHP SDK has 2 ways of payment.
  * One way is SMS Transaction (registerSmsTransaction). When the client's money transfers on the merchant account instantly when the user do the payment. This way is recommended use.
  * Another way is DMS Transaction (registerDmsAuthorization). When the client's money has been blocked on their account before you confirm that transaction. This way is mostly used in the case of the long shipping time.
 
