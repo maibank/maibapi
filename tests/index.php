@@ -2,7 +2,7 @@
 
 namespace MyProject;
 
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once(__DIR__ . '/../vendor/autoload.php');
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
@@ -14,7 +14,8 @@ use Maib\MaibApi\MaibClient;
 
 // Create a log for Guzzle client class, if you want (monolog/monolog required)
 // It is needed to send to Maib Support in case of errors appear.
-if ((isset($log_is_required) && $log_is_required)) {
+$log_is_required = true;
+if (!empty($log_is_required)) {
     $log = new Logger('maib_guzzle_request');
     $log->pushHandler(new StreamHandler(__DIR__.'/logs/maib_guzzle_request.log', Logger::DEBUG));
     $stack = HandlerStack::create();
