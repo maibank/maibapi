@@ -6,13 +6,13 @@ use GuzzleHttp\Command\Guzzle\Description;
 
 class MaibDescription extends Description
 {
-  /**
-   * @param array $options Custom options to apply to the description
-   *     - formatter: Can provide a custom SchemaFormatter class
-   */
+    /**
+     * @param array $options Custom options to apply to the description
+     *     - formatter: Can provide a custom SchemaFormatter class
+     */
     public function __construct(array $options = [])
     {
-        $uri = empty($options['basePath']) ? '/ecomm/MerchantHandler' : $options['basePath'];
+        $uri = empty($options['basePath']) ? '' : $options['basePath'];
         parent::__construct([
             'name'       => 'Maib API',
             'operations' => [
