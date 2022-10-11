@@ -12,7 +12,7 @@ class MaibDescription extends Description
      */
     public function __construct( array $options = [ ])
     {
-        $uri = empty($options['basePath']) ? '/ecomm/MerchantHandler' : $options['basePath'];
+        $uri = empty($options['basePath']) ? '' : $options['basePath'];
         parent::__construct( [
           'name'       => 'Maib API',
           'operations' => [

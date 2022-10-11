@@ -21,7 +21,7 @@ class MaibClient extends GuzzleClient
     /**
      * The Bank server URL to use in production mode.
      */
-    const MAIB_LIVE_BASE_URI = 'https://maib.ecommerce.md:11440';
+    const MAIB_LIVE_BASE_URI = 'https://maib.ecommerce.md:11440/ecomm01/MerchantHandler';
 
     /**
      * The Payment Gateway URL to use in development/testing mode.
@@ -31,7 +31,7 @@ class MaibClient extends GuzzleClient
     /**
      * The Bank server URL to use in development/testing mode.
      */
-    const MAIB_TEST_BASE_URI = 'https://maib.ecommerce.md:21440';
+    const MAIB_TEST_BASE_URI = 'https://maib.ecommerce.md:21440/ecomm/MerchantHandler';
 
     /**
      * The Certificate URL to use in development/testing mode.
