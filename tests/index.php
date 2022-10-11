@@ -2,7 +2,7 @@
 
 namespace MyProject;
 
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once(__DIR__ . '/../vendor/autoload.php');
 
 use Maib\MaibApi\MaibClient;
 use GuzzleHttp\Client;
@@ -13,7 +13,7 @@ use Monolog\Logger;
 
 // Set the Guzzle client options
 $options = [
-  'base_uri' => MaibClient::MAIB_TEST_BASE_URI,
+  'base_url' => MaibClient::MAIB_TEST_BASE_URI,
   'debug'  => false,
   'verify' => true,
   'defaults' => [
