@@ -195,7 +195,7 @@ USAGE
         * error          - in case of an error
   ````
     // The execute dms transaction method
-    $makeDMSTrans = $client->makeDMSTrans($dms_transaction_id, $amount, $currency, $clientIpAddr, $description, $language);
+    $makeDMSTrans = $client->makeDMSTrans($dms_transaction_id, $amount, $currency, $clientIpAddr, $description, $lang);
   ````
  * Get transaction result
    You can get the transaction status yourself using the getTransactionResult method. But do not forget, the transaction ID has a timeout of 10 minutes.
